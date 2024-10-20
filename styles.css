@@ -1,8 +1,13 @@
-$background: rgba(18, 18, 18, 0.85); // 0.85 to 85% opacity
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+// Definicje zmiennych wspólne dla obu stylów
+$background: rgba(18, 18, 18, 0.85); // Tło z delikatną przezroczystością
+$border: #8d8d8d;
 $border-1: rgba(89, 89, 89, 0.85);
 $border-2: rgba(141, 141, 141, 0.85);
+$border-rotation: 0deg;
 
-.dark-theme {
+.generator, .dark-theme {
 
     * {
         padding: 0;
@@ -11,19 +16,66 @@ $border-2: rgba(141, 141, 141, 0.85);
         color: white;
     }
 
-    .wrapper {
+    .wrapper, #root {
         display: flex;
         flex-direction: column;
         justify-content: center;
+        align-items: center;
         background: linear-gradient($border-rotation, $border-1, $border-2);
         border-radius: 12px;
         padding: 1px;
+        width: 100vw;
+        height: 100vh;
+        box-sizing: border-box;
+        padding: 16px;
+    }
+
+    body {
+        background: $background;
+        overflow-x: hidden;
+    }
+
+    main {
+        display: flex;
+        padding: 12px;
+        border: 1px solid $border;
+        border-radius: 6px;
+
+        iframe {
+            border: 0;
+            width: 400px;
+        }
+
+        hr {
+            margin: 6px 12px;
+            border: none;
+            border-right: 1px solid $border;
+            border-bottom: 1px solid $border;
+        }
+
+        input, select {
+            border: 1px solid $border;
+            background: #121212;
+            padding: 6px;
+            border-radius: 6px;
+            outline: none;
+            transition: .2s;
+            width: 100%;
+            box-sizing: border-box;
+            margin: 6px 0;
+        }
+
+        input:focus, select:focus {
+            border: 1px solid white;
+        }
 
         .widget {
             display: flex;
             align-items: center;
             justify-content: space-between;
             padding: 12px;
+            border-radius: 12px;
+            background: $background;
 
             .level {
                 display: flex;
@@ -52,9 +104,6 @@ $border-2: rgba(141, 141, 141, 0.85);
                     display: flex;
                 }
             }
-
-            border-radius: 12px;
-            background: $background;
         }
 
         .stat {
@@ -76,14 +125,46 @@ $border-2: rgba(141, 141, 141, 0.85);
         }
 
         .stat.green {
-            border: 1px solid rgba(0, 255, 95, 0.85);
+            border: 1px solid #00ff5f;
             background: rgba(17, 49, 24, 0.85);
         }
 
         .stat.red {
-            border: 1px solid rgba(255, 34, 34, 0.85);
+            border: 1px solid #ff2222;
             background: rgba(54, 14, 14, 0.85);
-            color: rgba(255, 34, 34, 0.85);
+            color: #ff2222;
         }
+    }
+
+    .preview, .separator, .setting, header, footer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 6px;
+    }
+
+    .separator {
+        width: 100%;
+        font-weight: bold;
+
+        hr {
+            margin: 0 0 0 6px;
+            flex: 1;
+        }
+    }
+
+    .preview {
+        min-width: 450px;
+    }
+
+    .setting {
+        margin: 6px 0;
+    }
+
+    header, footer {
+        text-align: center;
+        margin-bottom: 6px;
     }
 }
