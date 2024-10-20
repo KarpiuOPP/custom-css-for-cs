@@ -1,11 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
 
-$background: rgba(18, 18, 18, 0.85);
+// Definicje zmiennych wspólne dla obu stylów
+$background: rgba(18, 18, 18, 0.85); // Dodano delikatną przezroczystość
+$border: #8d8d8d;
 $border-1: rgba(89, 89, 89, 0.85);
 $border-2: rgba(141, 141, 141, 0.85);
 $border-rotation: 0deg;
 
-.generator, .dark-theme {
+.dark-theme, .generator {
 
     * {
         padding: 0;
